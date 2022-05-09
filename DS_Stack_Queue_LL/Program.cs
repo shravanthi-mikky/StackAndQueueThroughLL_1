@@ -22,15 +22,24 @@ while (true)
                 ll1.Pop();
                 Console.WriteLine("Number of elements in stack after pop method : " + ll1.Count);
             }
-                break;
+            Console.WriteLine("\n*************************************");
+            break;
         case 2:
             Console.WriteLine("Implementation of Queue using LinkedList!");
             Queue_LinkedList QueuqObject = new();
             QueuqObject.enqueue(70);
             QueuqObject.enqueue(30);
             QueuqObject.enqueue(56);
-            Console.WriteLine("The Elements of the Queue are :");
+            Console.Write("The Elements of the Queue are :");
             QueuqObject.Display();
+            Console.WriteLine("\n");
+            int Len1 = QueuqObject.Count;
+            Console.WriteLine("Number od elements in Queue are :"+QueuqObject.Count);
+            for (int i = 0; i < Len1; i++)
+            {
+                QueuqObject.dequeue();
+                Console.WriteLine("Number of elements in Queue after deQueue method : " + QueuqObject.Count);
+            }
             Console.WriteLine("\n*************************************");
             break;
         default:

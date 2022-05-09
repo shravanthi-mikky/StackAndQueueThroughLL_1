@@ -16,7 +16,7 @@ namespace DS_Stack_Queue_LL
         public int Count = 0;
         public void enqueue(int key)
         {
-
+            Count++;
             QNode temp = new QNode(key);
             if (this.Rear == null)
             {
@@ -25,7 +25,7 @@ namespace DS_Stack_Queue_LL
             }
             this.Rear.Next = temp;
             this.Rear = temp;
-            Count++;
+           
         }
         public void Display()
         {
@@ -44,6 +44,22 @@ namespace DS_Stack_Queue_LL
                 }
             }
 
+        }
+        public void dequeue()
+        {
+            if (this.Front == null)
+                return;
+
+            // Store previous front and
+            // move front one node ahead
+            QNode temp = this.Front;
+            this.Front = this.Front.Next;
+
+            // If front becomes NULL,
+            // then change rear also as NULL
+            if (this.Front == null)
+                this.Rear = null;
+            Count--;
         }
     }
 }
