@@ -6,18 +6,23 @@ using System.Threading.Tasks;
 
 namespace DS_Stack_Queue_LL
 {
-    public class LinkedListMethods
+    public class LinkedListMethods<T>
     {
-        Node top;
+        Node<T> top;
         
         public LinkedListMethods()
         {
             this.top = null;
             
         }
-        public void Push(int x)
+        private int count =0;
+        public int Count
         {
-            Node temp = new(x);
+            get { return count; }
+        }
+        public void Push(T x)
+        {
+            Node<T> temp = new();
             if (temp == null)
             {
                 Console.WriteLine("Heap overflow");
@@ -29,13 +34,14 @@ namespace DS_Stack_Queue_LL
                 temp.link = top;
                 top = temp;
             }
+            count++;
 
         }
         public bool isEmpty()
         {
             return top == null;
         }
-        public int Peek()
+        public T Peek()
         {
             if (!isEmpty())
             {
@@ -44,7 +50,7 @@ namespace DS_Stack_Queue_LL
             else
             {
                 Console.WriteLine("Stack is Empty");
-                return -1;
+                return default(T);
             }
         }
         public void Pop()
@@ -55,6 +61,7 @@ namespace DS_Stack_Queue_LL
                 return;
             }
             top = (top).link;
+            count--;
         }
         public void Display()
         {
@@ -65,7 +72,7 @@ namespace DS_Stack_Queue_LL
             }
             else
             {
-                Node temp = top;
+                Node<T> temp = top;
                 while (temp != null)
                 {
                     Console.Write("->{0}", temp.data);
