@@ -26,7 +26,7 @@ while (true)
             break;
         case 2:
             Console.WriteLine("Implementation of Queue using LinkedList!");
-            Queue_LinkedList QueuqObject = new();
+            Queue_LinkedList<int> QueuqObject = new();
             QueuqObject.enqueue(70);
             QueuqObject.enqueue(30);
             QueuqObject.enqueue(56);

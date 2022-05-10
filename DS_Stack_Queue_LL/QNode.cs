@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DS_Stack_Queue_LL
 {
-    public class QNode
+    public class QNode<Generic>
     {
-        public int Key;
-        public QNode Next;
-        public QNode(int Key)
+        public Generic Key;
+        public QNode<Generic> Next;
+        public QNode(Generic Key)
         {
             this.Next = null;
             this.Key = Key;
