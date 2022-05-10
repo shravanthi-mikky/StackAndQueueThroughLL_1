@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace DS_Stack_Queue_LL
 {
-    public class Queue_LinkedList
+    public class Queue_LinkedList<Generic>
     {
-        QNode Front, Rear;
+        QNode<Generic> Front, Rear;
         public Queue_LinkedList()
         {
             this.Front = this.Rear = null;
         }
         public int Count = 0;
-        public void enqueue(int key)
+        public void enqueue(Generic key)
         {
             Count++;
-            QNode temp = new QNode(key);
+            QNode<Generic> temp = new QNode<Generic>(key);
             if (this.Rear == null)
             {
                 this.Front = this.Rear = temp;
@@ -36,7 +36,7 @@ namespace DS_Stack_Queue_LL
             }
             else
             {
-                QNode temp = Front;
+                QNode<Generic> temp = Front;
                 while (temp != null)
                 {
                     Console.Write("->{0}", temp.Key);
@@ -52,7 +52,7 @@ namespace DS_Stack_Queue_LL
 
             // Store previous front and
             // move front one node ahead
-            QNode temp = this.Front;
+            QNode<Generic> temp = this.Front;
             this.Front = this.Front.Next;
 
             // If front becomes NULL,
